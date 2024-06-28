@@ -1,0 +1,391 @@
+* {
+    box-sizing: border-box;
+}
+
+.comic-neue-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: large;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+  }
+
+body{
+    display: grid;
+}
+
+header{
+    background-color: white;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
+    background: #fff;
+    position: sticky;
+    z-index: 1; /* Alguns elementos, como a opacidade das imagens, estavam passando por cima do header.*/
+    top: 0;
+}
+
+footer{
+    padding: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.mainbar{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.navmain{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.navmain-main{
+    display: flex;
+}
+
+.navmain-main li{
+    margin: 10px;
+    text-align: center;
+}
+
+.navlogo{
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+}
+
+.navlogo a{
+    align-content: center;
+}
+
+.navlogo a img{
+    max-width: 100%;
+    max-height: 100%;
+    width: 72px;
+}
+
+#logo{
+    width: 48px;
+    image-rendering: pixelated;
+    transition: all 1s;
+}
+
+#logo:hover{
+    transform: scale(1.2);
+}
+
+.button{
+    border-bottom: 4px solid transparent;
+    transition: border-bottom 0.5s;
+}
+
+.button:hover{
+    border-bottom-color: black;
+    cursor: pointer;
+}
+
+.footer-end{
+    margin: auto 10px;
+    display: grid;  
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.footer-end-section1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.footer-end-section2{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-end-section3{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.footer-end-section4{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.social{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.social-main{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.social-main li{
+    margin: 10px;
+}
+
+hr{
+    margin: auto 20px 5px;
+    margin-top: 5px;
+}
+
+main{
+    padding: 20px;
+    background-image: url("imgs/background-image-test.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.main-body{
+    display: grid;
+	grid-template-columns: auto; /* Houve uma mudança no paradigma do site.*/
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    background-size: contain;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.main-section{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.main-section div h1{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.main-image{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    justify-items: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.main-image img{
+    width: 450px;
+    height: 350px;
+    max-width: 100%; /* Eu normalmente uso esses dois porque não quero definir tamanhos, mas, por algum motivo, eles evitam um problema na galeria. Funciona?*/
+    max-height: 100%; 
+    object-fit: cover;
+    border-radius: 5px;
+    transition: opacity 1s;
+    cursor: pointer;
+}
+
+.main-image img:hover{
+    opacity: 0.8;
+}
+
+.lightbox{
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%; /* Lightbox aparenta ser responsiva */
+    height: 100%; 
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.lightbox-content{
+    margin: auto;
+    display: block;
+    /* width: 1200px; */ /* Exceto o conteúdo da lightbox?*/
+    /* max-height: 900px; */
+    width: 100%;
+    height: 100%; 
+    object-fit: scale-down; /* Confio a minha vida ao object-fit, pois este nunca me deixou na mão. */
+}
+
+.close-btn{
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #cecece;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #fdfdfd;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.footer-start{
+    margin: auto 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+.form-container{
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
+    padding: 25px;
+}
+
+.form-container > h2 {
+    padding: 0px 0px 20px 0px;
+}
+
+form{
+    text-align: start;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px 20px;
+    border: 1px solid #c2c2c2;
+    border-radius: 4px;
+    margin: 10px auto;
+  }
+
+.submit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-submit{
+    padding: 10px 20px;
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+    background-color: rgb(113, 204, 90);
+    margin-top: 10px;
+
+}
+
+.button-submit:hover{
+    background-color: rgb(123, 221, 98);
+    border: 1px solid #ececec;
+    cursor:pointer
+}
+
+.sidebar{
+    /* Isso é necessário para fixar a sidebar no canto da tela. */
+    position: fixed;
+    width: 0px;
+    height: 100%;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    background-color: white;
+    overflow-x: hidden;
+
+    /* Algumas configuraçõs do navmain;*/
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    /* Extra */
+    transition: 0.5s;
+}
+
+.sidebar-main li{
+    margin-bottom: 20px;
+    max-height: 60px;
+    height: 100%;
+    align-self: center;
+    text-align: center;
+}
+
+.sidebar-main{
+    margin-top: 40px;
+}
+
+#borger {
+    font-size: 48px;
+    cursor: pointer;
+}
+
+header, main, footer {
+    margin-right: 0px;
+    transition: 0.5s;
+}
+
+.extra-section{
+    display: flex;
+    justify-content: center;
+}
+
+.accordion-main {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    max-width: 600px;
+}
+
+.accordion-main > h1 {
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.accordion {
+    background-color: #ffffff;
+    border-radius: 5px;
+    font-size: large;
+    border: none;
+    width: 100%;
+    padding: 20px;
+    text-align: start;
+    cursor: pointer;  
+    margin-top: 20px;
+}
+
+.accordion:after {
+    content: '+';
+    font-size: x-large;
+    color: #000000;
+    float: right;
+}
+
+.active:after {
+    content: '-'
+  }
+
+.accordiontext{
+    display: none;
+    padding: 20px;
+    margin-top: 5px;
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 5px;
+}
